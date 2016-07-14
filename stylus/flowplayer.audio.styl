@@ -1,0 +1,58 @@
+/*!
+ * Flowplayer HTML5 audio plugin
+ *
+ * Copyright (c) 2016, Flowplayer Oy
+ *
+ * Released under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * revision: $GIT_ID$
+ */
+
+.is-audio.flowplayer
+  .fp-player
+    background-size contain
+    background-repeat no-repeat
+    background-position center
+
+.is-audio.flowplayer.is-poster
+  .fp-player
+    background-size 0
+
+.is-audio-only.flowplayer
+  .fp-engine
+  >a
+    top -99999em
+
+  .fp-ratio
+  .fp-embed
+  .fp-fullscreen
+  .fp-help
+  .fp-speed
+  .fp-title
+  .fp-waiting
+    display none
+
+  .fp-ui
+    background-image none
+
+  &.is-splash
+    .fp-timeline
+    .fp-timeline-tooltip
+      display none
+
+    .fp-brand
+    .fp-controls
+    .fp-time
+      display block !important
+
+    .fp-buffer
+    .fp-progress
+    .fp-volumelevel
+      width 0 !important
+
+  &.is-poster
+    .fp-brand
+    .fp-controls
+    .fp-time
+      display block !important

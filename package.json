@@ -1,0 +1,33 @@
+{
+  "name": "flowplayer-audio",
+  "version": "0.1.0",
+  "description": "Flowplayer audio plugin",
+  "main": "flowplayer.audio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "jslint --edition=latest --devel flowplayer.audio.js",
+    "min": "uglifyjs -m -c --comments '/Flowplayer Oy/' -o dist/flowplayer.audio.min.js -",
+    "styl": "stylus > dist/flowplayer.audio.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flowplayer/flowplayer-audio"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flowplayer/flowplayer-audio/issues"
+  },
+  "homepage": "https://github.com/flowplayer/flowplayer-audio",
+  "peerDependencies": {
+    "flowplayer": "^6.0.3"
+  },
+  "devDependencies": {
+    "jslint": "^0.9.5",
+    "stylus": "^0.53.0",
+    "uglifyjs": "^2.4.10"
+  },
+  "jshintConfig": {
+    "undef": true
+  }
+}
