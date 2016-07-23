@@ -56,8 +56,7 @@
                 });
 
             } else {
-                var poster = common.css(root, "backgroundImage"),
-                    playerElem = common.find(".fp-player", root)[0],
+                var playerElem = common.find(".fp-player", root)[0],
                     removeAudioStyling = function () {
                         common.removeClass(root, "is-audio");
                         common.css(playerElem, "background-image", "");
@@ -68,14 +67,8 @@
                         var coverImage = (media && media.coverImage) || (!media.index && conf.coverImage);
 
                         common.addClass(root, "is-audio");
-
                         if (coverImage) {
-                            coverImage = "url(" + coverImage + ")";
-                        } else if (!media.index && poster && poster !== "none") {
-                            coverImage = poster;
-                        }
-                        if (coverImage) {
-                            common.css(playerElem, "background-image", coverImage);
+                            common.css(playerElem, "background-image", "url(" + coverImage + ")");
                         }
                     } else {
                         removeAudioStyling();
