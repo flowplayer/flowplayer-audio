@@ -27,6 +27,9 @@
                 var bean = flowplayer.bean,
                     audioOnlyClasses = ["fixed-controls", "is-mouseover", "is-audio-only", "play-button"];
 
+                bean.off(root, "mouseenter");
+                bean.off(root, "mouseleave");
+
                 flowplayer.extend(api.conf, {
                     fullscreen: false,
                     tooltip: false
@@ -37,15 +40,6 @@
                 });
                 common.removeClass(root, "is-mouseout");
                 common.css(root, "margin-bottom", common.css(common.find(".fp-controls", root)[0], "height"));
-
-                bean.on(root, "click.audioonly mouseleave.audioonly", function (e) {
-                    if (e.type.indexOf("c") < 0) {
-                        common.removeClass(root, "is-mouseout");
-                        common.addClass(root, "is-mouseover");
-                    } else if (api.splash) {
-                        api.load();
-                    }
-                });
 
                 api.on("unload.audioonly", function () {
                     var timeClasses = ["elapsed", "duration"];
