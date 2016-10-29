@@ -1,6 +1,6 @@
 {
   "name": "flowplayer-audio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Flowplayer audio plugin",
   "main": "flowplayer.audio.js",
   "scripts": {

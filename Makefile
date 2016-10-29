@@ -1,14 +1,14 @@
 DIST=dist
 BASE=flowplayer.audio
-GIT_ID=${shell git rev-parse --short HEAD }
+GIT_DESC=${shell git describe }
 
 min:
 	@ mkdir -p $(DIST)
-	@ sed -e 's/\$$GIT_ID\$$/$(GIT_ID)/' stylus/$(BASE).styl | npm run styl
-	@ sed -e 's/\$$GIT_ID\$$/$(GIT_ID)/' $(BASE).js | npm run min
+	@ sed -e 's/\$$GIT_DESC\$$/$(GIT_DESC)/' stylus/$(BASE).styl | npm run styl
+	@ sed -e 's/\$$GIT_DESC\$$/$(GIT_DESC)/' $(BASE).js | npm run min
 
 dist: min
-	@ sed -e 's/\$$GIT_ID\$$/$(GIT_ID)/' $(BASE).js > $(DIST)/$(BASE).js
+	@ sed -e 's/\$$GIT_DESC\$$/$(GIT_DESC)/' $(BASE).js > $(DIST)/$(BASE).js
 	@ cp LICENSE.md $(DIST)/
 
 clean:

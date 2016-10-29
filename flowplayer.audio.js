@@ -10,9 +10,8 @@
    Released under the MIT License:
    http://www.opensource.org/licenses/mit-license.php
 
-   requires:
-   - Flowplayer HTML5 version 6.x or greater
-   revision: $GIT_ID$
+   Requires Flowplayer HTML5 version 6.x or greater
+   $GIT_DESC$
 
 */
 (function () {
