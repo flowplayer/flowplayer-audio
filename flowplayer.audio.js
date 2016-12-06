@@ -24,7 +24,15 @@
 
             if (conf.audioOnly || common.hasClass(root, "is-audio-only")) {
                 var bean = flowplayer.bean,
-                    audioOnlyClasses = ["fixed-controls", "is-mouseover", "is-audio-only", "play-button"];
+                    coreV6 = flowplayer.version.indexOf("6.") === 0,
+                    controls = common.find(".fp-controls", root)[0],
+                    timeline = common.find(".fp-timeline", root)[0],
+                    bgcolor = "background-color",
+                    audioOnlyClasses = ["is-audio-only-7x", "is-audio-only", "is-mouseover"];
+
+                if (coreV6) {
+                    audioOnlyClasses = audioOnlyClasses.slice(1).concat(["fixed-controls", "play-button"]);
+                }
 
                 bean.off(root, "mouseenter");
                 bean.off(root, "mouseleave");
@@ -38,14 +46,33 @@
                     common.addClass(root, cls);
                 });
                 common.removeClass(root, "is-mouseout");
-                common.css(root, "margin-bottom", common.css(common.find(".fp-controls", root)[0], "height"));
+                if (coreV6) {
+                    common.css(root, "margin-bottom", common.css(controls, "height"));
+                } else {
+                    if (/^(transparent|rgba\(0,\ 0,\ 0,\ 0\))$/.test(common.css(controls, bgcolor))) {
+                        common.css(controls, bgcolor, "#bbb");
+                    }
+                    // make room for timestamp
+                    common.css(root, "height", (common.height(controls) + 30) + "px");
+                    common.css(root, "margin-top", "-30px");
+                }
 
+                if (!coreV6) {
+                    api.on("load.audioonly", function () {
+                        // reveal timeline
+                        common.css(timeline, bgcolor, "");
+                    });
+                }
                 api.on("unload.audioonly", function () {
                     var timeClasses = ["elapsed", "duration"];
 
                     timeClasses.forEach(function (cls) {
                         common.find(".fp-" + cls, root)[0].innerHTML = "00:00";
                     });
+                    if (!coreV6) {
+                        // do not show timeline in splash state
+                        common.css(timeline, bgcolor, common.css(controls, bgcolor));
+                    }
                 });
 
             } else {
