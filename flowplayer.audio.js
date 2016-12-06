@@ -78,11 +78,7 @@
                     });
                 }
                 api.on("unload.audioonly", function () {
-                    var timeClasses = ["elapsed", "duration"];
-
-                    timeClasses.forEach(function (cls) {
-                        common.find(".fp-" + cls, root)[0].innerHTML = "00:00";
-                    });
+                    common.find(".fp-elapsed", root)[0].innerHTML = "00:00";
                     if (!coreV6) {
                         // do not show timeline in splash state
                         common.css(timeline, bgcolor, common.css(controls, bgcolor));
