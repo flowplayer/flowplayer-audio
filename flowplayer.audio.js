@@ -28,11 +28,20 @@
                     controls = common.find(".fp-controls", root)[0],
                     timeline = common.find(".fp-timeline", root)[0],
                     bgcolor = "background-color",
+                    removalClasses = coreV6
+                        ? ["fp-embed", "fp-fullscreen", "fp-help", "fp-speed", "fp-title", "fp-waiting"]
+                        : ["fp-pause", "fp-play", "fp-header", "fp-speed-flash"],
                     audioOnlyClasses = ["is-audio-only-7x", "is-audio-only", "is-mouseover"];
+
 
                 if (coreV6) {
                     audioOnlyClasses = audioOnlyClasses.slice(1).concat(["fixed-controls", "play-button"]);
                 }
+
+                removalClasses.unshift("fp-ratio");
+                removalClasses.forEach(function (cls) {
+                    common.removeNode(common.find("." + cls, root)[0]);
+                });
 
                 bean.off(root, "mouseenter");
                 bean.off(root, "mouseleave");
