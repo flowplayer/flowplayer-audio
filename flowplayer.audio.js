@@ -67,6 +67,11 @@
                 }
 
                 if (!coreV6) {
+                    bean.on(common.find(".fp-ui", root)[0], "click", function (e) {
+                        if (common.hasClass(e.target, "fp-ui")) {
+                            e.stopPropagation();
+                        }
+                    });
                     api.on("load.audioonly", function () {
                         // reveal timeline
                         common.css(timeline, bgcolor, "");
