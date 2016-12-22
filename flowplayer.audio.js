@@ -5,7 +5,7 @@
 
    Audio plugin for Flowplayer HTML5
 
-   Copyright (c) 2016, Flowplayer Oy
+   Copyright (c) 2016, Flowplayer Drive Oy
 
    Released under the MIT License:
    http://www.opensource.org/licenses/mit-license.php
