@@ -30,7 +30,7 @@
                     bgcolor = "background-color",
                     removalClasses = coreV6
                         ? ["fp-embed", "fp-fullscreen", "fp-help", "fp-speed", "fp-title", "fp-waiting"]
-                        : ["fp-pause", "fp-play", "fp-header", "fp-speed-flash"],
+                        : ["fp-pause", "fp-play"],
                     audioOnlyClasses = ["is-audio-only-7x", "is-audio-only", "is-mouseover"];
 
 
