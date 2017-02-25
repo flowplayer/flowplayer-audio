@@ -18,9 +18,13 @@
     background-repeat no-repeat
     background-position center
 
-.is-audio.flowplayer.is-poster
-  .fp-player
-    background-size 0
+  &.is-poster
+    .fp-player
+      background-size 0
+
+  &.is-ad-visible
+    .fp-engine
+      top 0
 
 .is-audio-only.flowplayer
   .fp-engine
