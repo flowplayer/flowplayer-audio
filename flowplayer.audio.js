@@ -29,8 +29,8 @@
                     timeline = common.find(".fp-timeline", root)[0],
                     bgcolor = "background-color",
                     removalClasses = coreV6
-                        ? ["fp-embed", "fp-fullscreen", "fp-help", "fp-speed", "fp-title", "fp-waiting"]
-                        : ["fp-pause", "fp-play"],
+                        ? ["fp-embed", "fp-fullscreen", "fp-title"]
+                        : ["fp-pause", "fp-play", "fp-speed-flash"],
                     audioOnlyClasses = ["is-audio-only-7x", "is-audio-only", "is-mouseover"];
 
 
@@ -38,9 +38,8 @@
                     audioOnlyClasses = audioOnlyClasses.slice(1).concat(["fixed-controls", "play-button"]);
                 }
 
-                removalClasses.unshift("fp-ratio");
-                removalClasses.forEach(function (cls) {
-                    common.removeNode(common.find("." + cls, root)[0]);
+                removalClasses.concat(["fp-ratio", "fp-help", "fp-speed", "fp-waiting"]).forEach(function (cls) {
+                    common.find("." + cls, root).forEach(common.removeNode);
                 });
 
                 bean.off(root, "mouseenter");
@@ -48,6 +47,7 @@
 
                 flowplayer.extend(api.conf, {
                     fullscreen: false,
+                    ratio: false,
                     tooltip: false
                 });
 
