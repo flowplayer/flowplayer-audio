@@ -92,7 +92,7 @@
                         common.css(playerElem, "background-image", "");
                     };
 
-                api.on("ready.audio", function (e, api, media) {
+                api.on("ready.audio", function (_e, _api, media) {
                     if (media.audio || (!media.index && conf.audio)) {
                         var coverImage = (media && media.coverImage) || (!media.index && conf.coverImage);
 
